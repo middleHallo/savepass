@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/start/start",
+    "pages/list/list",
+    "pages/addpass/addpass"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  }
+}

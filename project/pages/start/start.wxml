@@ -1,0 +1,15 @@
+<!--pages/start/start.wxml-->
+<view class='body'>
+    <view class='statement' style='width:{{scrollHieght}}px'>
+        <scroll-view style='width:{{scrollHieght}}px'>
+        
+        </scroll-view>
+    </view>
+    <view class='action'>
+        <radio class='hadread'>我已阅读了上述声明</radio>
+        <button bindtap='goto'>进入小程序</button>
+        <button bindtap='getAuthens'>获取生物验证方式</button>
+        <button bindtap='isStoareAuthen'>获取是否录入生物验证等信息</button>
+        <button bindtap='checkfingtap'>指纹验证</button>
+    </view>
+</view>
