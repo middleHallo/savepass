@@ -6,7 +6,17 @@ Page({
    */
   data: {
     scrollHieght:340,
-    isselected:false
+    isselected:false,
+    /**
+     * 认证方式
+     * 枚举：finger 指纹验证(默认)。pass 密码验证
+     */
+    authWay:'finger',
+    /**
+     * 用于记录是否支持指纹验证以及记录是否录入指纹
+     */
+    isContainFinger:false,
+    isStoareFinger:false
   },
 
   /**
@@ -26,6 +36,10 @@ Page({
         scrollHieght: scrollHieght
       })
   },
+
+  /**
+   * 
+   */
 
   /**
    * 进入小程序
@@ -53,10 +67,21 @@ Page({
   },
 
   /**
+   * 更改验证方式
+   */
+  radioChange:function(event){
+    
+    this.setData({
+      authWay:event.detail.value
+    })
+  },
+
+  /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    this.getAuthens()
+    this.isStoareAuthen()
   },
 
   /**
@@ -70,9 +95,26 @@ Page({
    * 获取支持的生物验证信息
    */
   getAuthens:function(){
+    let that = this
+    let idx = 0
     wx.checkIsSupportSoterAuthentication({
       success:res=>{
-        console.log(res)
+        let modes = res.supportMode
+        let isSupport = false
+        idx = modes.indexOf('fingerPrint')
+        if(idx != -1){
+          isSupport = true
+        }
+        // 记录下
+        that.setData({
+          isContainFinger: isSupport
+        })
+      },
+      fail:function(){
+        // 记录下
+        that.setData({
+          isContainFinger: false
+        })
       }
     })
   },
@@ -81,10 +123,23 @@ Page({
    * 获取是否录入生物验证信息
    */
   isStoareAuthen:function(){
+    let that = this
+    let isEnrolled = false
     wx.checkIsSoterEnrolledInDevice({
       checkAuthMode:'fingerPrint',
       success:res=>{
-        console.log(res)
+        if(res.isEnrolled == 1){
+          isEnrolled = true
+        }
+
+        that.setData({
+          isStoareFinger: isEnrolled
+        })
+      },
+      fail:function(){
+        that.setData({
+          isStoareFinger: false
+        })
       }
     })
   },

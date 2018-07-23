@@ -1,9 +1,47 @@
 /* pages/start/start.wxss */
-.body{
-  width: 750rpx;
-  height: 100vh;
+
+
+.authWayView{
+  padding:10px;
+  background-color: #E3E3E3;
+  height: 24px;
+  line-height: 24px;
+  vertical-align: middle; 
+  position: relative;
 }
 
-.hadread{
-  color: greenyellow;
+.authWayView text{
+  font-size: 16px;
+  color: green;
+  position: absolute;
+  bottom: 10px;
+}
+
+.aradio{
+
+    margin-left: 20px;
+
+}
+
+.aradio{
+
+  margin-left: 20px;
+  margin-right: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.passInput{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: solid 1px #E3E3E3;
+  border-left: solid 2px #E3E3E3;
+  border-right: solid 2px #E3E3E3;
+  height: 40PX;
+  margin-left: 10PX;
+  margin-right: 10PX;
+}
+
+.passPlaceHoder{
+  font-size: 16px;
 }

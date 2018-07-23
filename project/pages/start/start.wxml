@@ -1,15 +1,20 @@
 <!--pages/start/start.wxml-->
 <view class='body'>
-    <view class='statement' style='width:{{scrollHieght}}px'>
-        <scroll-view style='width:{{scrollHieght}}px'>
-        
-        </scroll-view>
+    
+    <view class='authWayView'>
+      <image src='/images/select2.png' style='width:24px;height:24px;'></image> 
+      <text>请指定认证方式</text>
     </view>
-    <view class='action'>
-        <radio class='hadread'>我已阅读了上述声明</radio>
-        <button bindtap='goto'>进入小程序</button>
-        <button bindtap='getAuthens'>获取生物验证方式</button>
-        <button bindtap='isStoareAuthen'>获取是否录入生物验证等信息</button>
-        <button bindtap='checkfingtap'>指纹验证</button>
+    <view>
+        <radio-group bindchange="radioChange">
+          <radio value='pass' class='aradio'>密码验证</radio>
+          <radio value='finger' checked class='aradio'>指纹验证</radio>
+        </radio-group>
     </view>
+     <view style="display:{{authWay=='pass'?'block':'none'}};">
+        <input type='text' password='true' class='passInput' placeholder-class='passPlaceHoder' placeholder='请输入密码，最长32位' maxlength="32"></input>
+        <input type='text' password='true' class='passInput' placeholder-class='passPlaceHoder' placeholder='请确认密码，最长32位' maxlength="32"></input>
+     </view> 
+
+    <button class='weui-btn' primary='default'>验证并进入小程序</button>
 </view>
