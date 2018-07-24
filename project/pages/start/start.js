@@ -13,7 +13,7 @@ Page({
      * 认证方式
      * 枚举：finger 指纹验证(默认)。pass 密码验证
      */
-    authWay:'finger',
+    authWay:'pass',
     /**
      * 用于记录是否支持指纹验证以及记录是否录入指纹
      */
@@ -230,7 +230,7 @@ Page({
   checkAuthWay:function(){
     let authWay = wx.getStorageSync('authWay')
     if(authWay == ''){
-      authWay = 'finger'
+      authWay = 'pass'
     }
     this.setData({
       authWay:authWay

@@ -14,8 +14,8 @@
       </view>
       <view>
           <radio-group bindchange="radioChange">
-            <radio value='pass' class='aradio'>密码验证</radio>
-            <radio value='finger' checked class='aradio'>指纹验证(推荐)</radio>
+            <radio value='pass' checked class='aradio'>密码验证(默认)</radio>
+            <radio value='finger'  class='aradio'>指纹验证(推荐)</radio>
           </radio-group>
       </view>
       <view hidden="{{authWay=='pass'?false:true}}" animation="inputAnimation">
