@@ -1,20 +1,36 @@
 <!--pages/start/start.wxml-->
 <view class='body'>
-    
-    <view class='authWayView'>
-      <image src='/images/select2.png' style='width:24px;height:24px;'></image> 
-      <text>请指定认证方式</text>
+    <view class='privisions'>
+      <view class='privision'>1.小程序不上传和使用用户的任何信息，请放心使用。</view>
+      <view class='privision importance'>2.用户输入的信息以加密的形式保存到本地中，但为了您的财产安全，建议重要的账户信息自行记忆，不要保存在小程序中。</view>
+      <view class='privision importance'>3.由于所有信息都存储在本地中，删除此小程序前，请先备份您的账号信息，以免造成密码丢失。</view>
+      <view class='privision'>4.由用户操作不当或违反上述说明造成的损失，将由用户自己负责，开发团队不担负任何责任。</view>
+      <view class='privision'>5.本条约的解释权归开发团队所有。</view>
     </view>
-    <view>
-        <radio-group bindchange="radioChange">
-          <radio value='pass' class='aradio'>密码验证</radio>
-          <radio value='finger' checked class='aradio'>指纹验证</radio>
-        </radio-group>
+    <view class='register' hidden='{{isLogin}}'>
+      <view class='authWayView'>
+        <image src='/images/select2.png' style='width:24px;height:24px;'></image>
+        <text>请指定认证方式</text>
+      </view>
+      <view>
+          <radio-group bindchange="radioChange">
+            <radio value='pass' class='aradio'>密码验证</radio>
+            <radio value='finger' checked class='aradio'>指纹验证(推荐)</radio>
+          </radio-group>
+      </view>
+      <view hidden="{{authWay=='pass'?false:true}}" animation="inputAnimation">
+        <input type='text' bindinput='inputpass'  password='true' class='passInput' placeholder-class='passPlaceHoder' placeholder='请输入密码，最长32位' maxlength="32"></input>
+        <input type='text' bindinput='againinputpass' password='true' class='passInput' placeholder-class='passPlaceHoder' placeholder='请确认密码，最长32位' maxlength="32"></input>
+      </view>
+      <button class='weui-btn' type='primary' bindtap='goto'>验证并进入小程序</button>
     </view>
-     <view style="display:{{authWay=='pass'?'block':'none'}};">
-        <input type='text' password='true' class='passInput' placeholder-class='passPlaceHoder' placeholder='请输入密码，最长32位' maxlength="32"></input>
-        <input type='text' password='true' class='passInput' placeholder-class='passPlaceHoder' placeholder='请确认密码，最长32位' maxlength="32"></input>
-     </view> 
-
-    <button class='weui-btn' primary='default'>验证并进入小程序</button>
+    <view class='login' hidden='{{!isLogin}}'>
+      <view class='fingerLogin' hidden="{{authWay=='finger'?false:true}}">
+        <button class='weui-btn' type='primary' bindtap='fingerLogin'>进入小程序</button>
+      </view>
+      <view class='inputLogin' hidden="{{authWay=='finger'?true:false}}">
+        <input placeholder='请输入密码' type='text' password='true' bindinput='inputLoginText'></input>
+        <button class='weui-btn' type='primary' bindtap='inputLogin'>进入小程序</button>
+      </view>
+    </view>
 </view>
