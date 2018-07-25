@@ -1,12 +1,12 @@
-// pages/list/list.js
+// pages/more/more.js
+const utils = require('../../utils/util.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    scrollHeight:623,
-    listdata:[]
+  
   },
 
   /**
@@ -27,48 +27,49 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+  
+  },
 
-    let scrollHeight = wx.getSystemInfoSync().windowHeight
-    let listdata = wx.getStorageSync('listdata')
-    
-    this.setData({
-      scrollHeight: scrollHeight,
-      listdata: listdata
+  
+
+  /**
+   * 关于我们
+   */
+  aboutUs:function(){
+    wx.showModal({
+      title: '此部分功能未完成',
+      content: '商务合作请加微信：18620884621.',
+      showCancel:false
     })
   },
 
   /**
-   * 跳转修改页面
+   * 删除账号和密码
    */
-  updateData:function(event){
-    wx.setStorageSync('isupdate', true)
-    wx.setStorageSync('idx', event.currentTarget.dataset.idx)
-    wx.switchTab({
-      url: '/pages/addpass/addpass'
-    })
-  },
-
-  deleterow:function(event){
-    let that = this
-    let idx = event.currentTarget.dataset.idx
+  clearPassWord:function(){
     let listdata = wx.getStorageSync('listdata')
-    let currentRow = listdata[idx]
-    let content = '账户类型：' + currentRow['accountType'] + ";账号：" + currentRow['account']
+    let count = listdata.length
+    let content = '当前还有 ' + count +' 条账号记录，请做好备份再删除，是否确认删除？'
     wx.showModal({
-      title: '确认删除',
+      title: '删除确认提示',
       content: content,
       success:res=>{
         if(res.confirm){
-          listdata.splice(idx,1)
-          that.setData({
-            listdata: listdata
-          })
-          wx.setStorageSync('listdata', listdata)
-
+          wx.removeStorageSync('listdata')
+          utils.showsuccess('删除成功')
         }else{
           // 什么也不用做
         }
       }
+    })
+  },
+
+  /**
+   * 退出小程序
+   */
+  exitMiniProgram:function(){
+    wx.redirectTo({
+      url: '/pages/start/start',
     })
   },
 

@@ -104,7 +104,7 @@ Page({
         /**
          * 跳转小程序
          */
-        wx.redirectTo({
+        wx.switchTab({
           url: '../list/list',
         })
       }, 1000)
@@ -257,7 +257,7 @@ Page({
               /**
                * 跳转小程序
                */
-              wx.redirectTo({
+              wx.switchTab({
                 url: '../list/list',
               })
             },1000)
@@ -279,7 +279,7 @@ Page({
             /**
              * 跳转小程序
              */
-            wx.redirectTo({
+            wx.switchTab({
               url: '../list/list',
             })
           }, 1000)
@@ -300,7 +300,7 @@ Page({
         /**
          * 跳转小程序
          */
-        wx.redirectTo({
+        wx.switchTab({
           url: '../list/list',
         })
       }, 1000)

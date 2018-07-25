@@ -1,1 +1,53 @@
 /* pages/list/list.wxss */
+
+view{
+  margin: 0rpx;
+  padding: 0rpx;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  height: 180rpx;
+  background-color: #E6E6E6;
+  border-bottom: solid 1px white;
+}
+
+.row-group{
+  width: 420rpx;
+  height: 100rpx;
+  text-align: left;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  padding-top: 20rpx;
+  margin: 0rpx;
+}
+
+.row_title{
+  
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.delete{
+  text-align: right;
+  width: 250rpx;
+  padding-right: 20px;
+}
+
+.delete text{
+  text-decoration: underline;
+  font-size: 15px;
+  color: red;
+}
+
+.notMore{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+  text-align: center;
+  color: #A1A1A1;
+  font-size: 14px;
+}

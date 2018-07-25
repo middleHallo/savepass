@@ -1,0 +1,34 @@
+<!--pages/more/more.wxml-->
+<view class='container'>
+<!-- <view class='group'>
+  <view class='row' bindtap='share'>
+    <image src='/images/share.png' class='tag'></image>
+    <text>分享出去</text>
+    <image src='/images/seemore.png' class='seemore'></image>
+  </view>
+</view> -->
+<view class='group'>
+  <view class='row' bindtap='aboutUs'>
+    <image src='/images/about.png' class='tag'></image>
+    <text>关于我们</text>
+    <image src='/images/seemore.png' class='seemore'></image>
+  </view>
+</view>
+<view class='group'>
+  <view class='row' bindtap='clearPassWord'>
+    <image src='/images/clear.png' class='tag'></image>
+    <text>清空记录</text>
+    <image src='/images/seemore.png' class='seemore'></image>
+  </view>
+</view>
+<view class='group'>
+  <view class='row exit' bindtap='exitMiniProgram'>
+    <image src='/images/exit2.png' class='tag'></image>
+    <text>退出登录</text>
+    <image src='/images/seemore.png' class='seemore'></image>
+  </view>
+</view>
+
+</view>
+
+

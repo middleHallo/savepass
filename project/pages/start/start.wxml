@@ -1,6 +1,8 @@
 <!--pages/start/start.wxml-->
 <view class='body'>
+    
     <view class='privisions'>
+      <view class='title'>使用须知</view>
       <view class='privision'>1.小程序不上传和使用用户的任何信息，请放心使用。</view>
       <view class='privision importance'>2.用户输入的信息以加密的形式保存到本地中，但为了您的财产安全，建议重要的账户信息自行记忆，不要保存在小程序中。</view>
       <view class='privision importance'>3.由于所有信息都存储在本地中，删除此小程序前，请先备份您的账号信息，以免造成密码丢失。</view>
@@ -29,7 +31,7 @@
         <button class='weui-btn' type='primary' bindtap='fingerLogin'>进入小程序</button>
       </view>
       <view class='inputLogin' hidden="{{authWay=='finger'?true:false}}">
-        <input placeholder='请输入密码' type='text' password='true' bindinput='inputLoginText'></input>
+        <input placeholder='请输入密码' placeholder-class='passPlaceHoder' type='text' password='true' bindinput='inputLoginText'></input>
         <button class='weui-btn' type='primary' bindtap='inputLogin'>进入小程序</button>
       </view>
     </view>

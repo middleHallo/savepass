@@ -1,0 +1,59 @@
+/* pages/more/more.wxss */
+
+.container{
+  
+  padding-top: 25px;
+  background-color: #E9E9E9;
+  height: 180px;
+}
+.group{
+
+  margin-bottom: 5px;
+  
+  width: 750rpx;
+}
+
+
+.row{
+  font-size: 17px;
+  background-color: white;
+  text-align: left;
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.tag{
+  /* display: inline-block; */
+  width: 25px;
+  height: 25px;
+  margin-left: 15px;
+  margin-right: 20px;
+  /* margin-top: 8px; */
+}
+
+.row text{
+  margin-top: 0px;
+  /* display: inline-block; */
+  height: 40px;
+  line-height: 40px;
+  vertical-align: middle;
+}
+
+.seemore{
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  top: 14px;
+  right: 10px;
+}
+
+.exit{
+  color: red;
+}

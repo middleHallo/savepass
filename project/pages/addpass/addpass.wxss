@@ -1,1 +1,14 @@
 /* pages/addpass/addpass.wxss */
+
+
+.row{
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 20px;
+  
+}
+
+input{
+  height: 35px;
+  border: solid 1px #E3E3E3;
+}
