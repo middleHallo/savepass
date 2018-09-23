@@ -2,12 +2,34 @@
   "pages":[
     "pages/start/start",
     "pages/list/list",
-    "pages/addpass/addpass"
+    "pages/addpass/addpass",
+    "pages/more/more",
+    "pages/about/about"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/list/list",
+      "text": "首页",
+      "iconPath": "/images/start.png",
+      "selectedIconPath": "/images/start_select.png"
+    },
+    {
+      "pagePath": "pages/addpass/addpass",
+      "text": "添加",
+      "iconPath": "/images/add2.png",
+      "selectedIconPath": "/images/add2_select.png"
+    },
+    {
+      "pagePath": "pages/more/more",
+      "text": "更多",
+      "iconPath": "/images/more.png",
+      "selectedIconPath": "/images/more_select.png"
+    }]
   }
 }

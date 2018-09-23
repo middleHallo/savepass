@@ -1,2 +1,19 @@
 <!--pages/addpass/addpass.wxml-->
-<text>pages/addpass/addpass.wxml</text>
+<view class='addPassContainer'>
+  <view class='row'>
+    类型：<input class='accountType' placeholder='账户类型，选填，例如：QQ账号' value='{{accountType}}' bindinput='accountTypeInput'></input>
+  </view>
+  <view class='row'>
+    账号：<input class='account' placeholder='账号信息，选填' value='{{account}}' bindinput='accountInput'></input>
+  </view>
+  <view class='row'>
+    密码：<input class='password' placeholder='密码，选填' value='{{password}}' bindinput='passwordInput'></input>
+  </view>
+  <view class='row'>
+    备注：<input class='other' placeholder='备注信息，选填'  value='{{accountBz}}' bindinput='bzInput'></input>
+  </view>
+
+  <view class='row'>
+    <button class='weui-btn' type='primary' bindtap='add'>{{btnaction}}</button>
+  </view>
+</view>

@@ -1,2 +1,12 @@
 <!--pages/list/list.wxml-->
-<text>pages/list/list.wxml</text>
+
+<view class='row' wx:for="{{listdata}}" wx:key="*this" data-idx='{{index}}' bindtap='updateData'>
+  <view class='row-group'>
+    <view class='row_title'>{{item.accountType}}</view>
+    <view class='row_desc'>{{item.account}}</view>
+  </view>
+  <view class='delete'>
+    <text data-idx='{{index}}' catchtap='deleterow'>删  除</text>
+  </view>
+</view>
+<view class='notMore'>无更多记录了...</view>
