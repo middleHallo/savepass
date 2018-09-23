@@ -5,6 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    isFingerEable:false,
+    isLogin:false,
+    isSignIn:false,
     scrollHieght:340,
     isselected:false
   },
@@ -14,8 +17,65 @@ Page({
    */
   onLoad: function (options) {
   // 1111
+    this.getInitInfo()
   },
 
+  /**
+   * 获取初始化信息
+   */
+  getInitInfo:function(){
+    // 获取是否支持指纹验证及是否录入指纹
+    let isSupports = false
+    let isSoter = false
+    wx.checkIsSupportSoterAuthentication({
+      success: res => {
+        let supportmode = res.supportMode
+        let idx = supportmode.indexOf('fingerPrint')
+        console.log(res)
+        console.log(idx)
+        if(idx != -1){
+          isSupports = true
+        }
+      }
+    })
+
+    wx.checkIsSoterEnrolledInDevice({
+      checkAuthMode: 'fingerPrint',
+      success: res => {
+        console.log(res)
+        if(res.isEnrolled == 1){
+          isSoter = true
+        }
+      }
+    })
+    // 判断是否是新用户
+    let usercode = wx.getStorageSync('userCode')
+    let isLogin = false
+    let isSignIn = false
+
+    if(usercode == ''){
+        isLogin = true
+    }else{
+        isSignIn = true
+    }
+    // 判断指纹验证是否可用
+    let isEable = false
+    if(isSupports && isSoter){
+        isEable = true
+    }
+
+    console.log(isLogin)
+    console.log(isSignIn)
+    console.log('issupports=' + isSupports)
+    // 设置全局变量
+    this.setData({
+      isLogin: isLogin,
+      isSignIn:isSignIn,
+      isFingerEable: isEable
+    })
+
+
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -31,8 +91,14 @@ Page({
    * 进入小程序
    */
   goto:function(){
-    let isselected = this.data.isselected
 
+
+    let arr = ['fingPrint']
+
+    let isselected = this.data.isselected
+    let idx = arr.indexOf('fingPrint')
+
+    console.log(idx)
     if (!isselected){
 
       wx.showModal({
